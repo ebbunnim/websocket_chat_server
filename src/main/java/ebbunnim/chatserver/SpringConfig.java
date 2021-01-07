@@ -1,5 +1,6 @@
 package ebbunnim.chatserver;
 
+import ebbunnim.chatserver.aop.TimeTraceAop;
 import ebbunnim.chatserver.domain.Member;
 import ebbunnim.chatserver.repository.JdbcTemplateMemberRepository;
 import ebbunnim.chatserver.repository.JpaMemberRepository;
@@ -23,20 +24,9 @@ public class SpringConfig {
         this.memberRepository = memberRepository;
     }
 
-    //    private EntityManager em;
-//
-//    @Autowired
-//    public SpringConfig(EntityManager em) {
-//        this.em = em;
-//    }
-
     @Bean
     public MemberService memberService() {
         return new MemberService(memberRepository);
     }
 
-//    @Bean
-//    public MemberRepository memberRepository() {
-//        return new JpaMemberRepository(em);
-//    }
 }
