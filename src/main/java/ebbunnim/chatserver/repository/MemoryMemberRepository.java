@@ -5,7 +5,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
-@Repository
 public class MemoryMemberRepository implements MemberRepository{
     
     // 실무에서는 동시성 문제때문에 hashMap, sequence 대신 다른 자료형 사용
