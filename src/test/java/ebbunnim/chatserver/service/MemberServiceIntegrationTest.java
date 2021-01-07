@@ -1,28 +1,26 @@
 package ebbunnim.chatserver.service;
 
 import ebbunnim.chatserver.domain.Member;
+import ebbunnim.chatserver.repository.MemberRepository;
 import ebbunnim.chatserver.repository.MemoryMemberRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
-import static org.assertj.core.api.Assertions.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
-class MemberServiceTest {
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-    MemberService memberService;
-    MemoryMemberRepository memberRepository;
 
-    @BeforeEach
-    public void beforeEach() {
-        memberRepository = new MemoryMemberRepository();
-        memberService = new MemberService(memberRepository); // service에서 repository constructor에서 명시한대로 "외부에서 주입받겠다"를 사용. 독립된 인스턴스 생성되지 않도록.
-    }
+@SpringBootTest
+@Transactional
+class MemberServiceIntegrationTest {
 
-    @AfterEach
-    public void afterEach() {
-        memberRepository.clearStore();
-    }
+    // test에는 생성자 주입보다 필드 주입으로 간편하게 써도 됨
+    @Autowired  MemberService memberService;
+    @Autowired MemberRepository memberRepository;
 
     @Test
     void 회원가입() {
@@ -54,11 +52,4 @@ class MemberServiceTest {
 
     }
 
-    @Test
-    void 회원찾기() {
-    }
-
-    @Test
-    void findOne() {
-    }
 }
