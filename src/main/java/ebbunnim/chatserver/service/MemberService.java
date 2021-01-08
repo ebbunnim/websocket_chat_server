@@ -2,9 +2,7 @@ package ebbunnim.chatserver.service;
 
 import ebbunnim.chatserver.domain.Member;
 import ebbunnim.chatserver.repository.MemberRepository;
-import ebbunnim.chatserver.repository.MemoryMemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -15,6 +13,7 @@ public class MemberService {
 
     private final MemberRepository memberRepository;
 
+    @Autowired
     public MemberService(MemberRepository memberRepository) { // DI(dependency Injection) : "외부에서 주입받겠다"
         this.memberRepository = memberRepository;
     }

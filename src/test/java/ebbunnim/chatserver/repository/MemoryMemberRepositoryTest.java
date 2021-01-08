@@ -14,6 +14,7 @@ public class MemoryMemberRepositoryTest {
     public void afterEach() {
         repository.clearStore();
     }
+
     @Test
     public void save() {
         // save -> findById 해보기
