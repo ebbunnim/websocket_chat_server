@@ -5,4 +5,16 @@ spring:
     password: root
   jpa:
     show-sql: true
-    generate-ddl: false
+    generate-ddl: true
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      enabled: false
+  freemarker:
+    template-loader-path: classpath:/templates/
+    prefix: /chat/
+    suffix: .ftl
+    contentType: text/html
+    charset: UTF-8
+    cache: false
